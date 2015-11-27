@@ -6,29 +6,20 @@ define(function(require) {
 	var Drawable = require('display/Drawable');
 	var utils = require('util/Utils');
 
+	//配置canvas画布
 	var canvas = document.getElementById('mainCanvas');
 	var ctx = new CanvasContext({canvas: canvas});
+	//创建手对象
+	var hand = require('object/Hand.js');
+	
 
-	var hand = new DisplayObject({ name:'hand',width:200,height:200 });
-	hand.setDrawable(document.getElementById('hand'));
-
-	hand.scaleX = 0.5;
-	hand.scaleY = 0.5;
-	hand.x = 100;
-	hand.y = 100;
-	hand.doRota = function(){
-		var setFlag =  setInterval(function(){
-			hand.rotation += 5;
-		},30);
-	}
-	hand.on('click',function(e){
-		this.doRota();
-	});
-
+	//创建舞台，并添加对象
 	var stage = new Stage();
+	stage.addChild(hand);
+
+	//创建并初始化事物管理器
 	var eventMng = new EventMng(canvas, stage);
 	eventMng.init();
-	stage.addChild(hand);
 
 	
 

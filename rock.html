@@ -16,6 +16,7 @@ body{background:url(rock/resource/images/background.jpg) #e74143 no-repeat;paddi
 </head>
 <script src="rock/sea.js"></script>
 <script>
+	globle_rock_hand_count = 1;
 	seajs.use('rock');
 </script>
 <body>
@@ -29,8 +30,9 @@ body{background:url(rock/resource/images/background.jpg) #e74143 no-repeat;paddi
     <div class="cont"></div>
 </div>
 <div class="foot">版权所有：安徽天启文化有限公司</div>
-<div style="disable:none">
+<div style="display:none">
 	<img src="rock/resource/images/hand.png" id="hand" />
+	<audio src="rock/resource/voice/hand_rock.mp3" id="hand_rock_voice"></audio>
 </div>
 </body>
 </html>
