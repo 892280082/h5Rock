@@ -6,9 +6,9 @@
 <title>chat rock</title>
 <link rel="stylesheet" media="screen and (max-width:390px)" href="rock/resource/css/style.css" />
 <style type="text/css">
-body{background:url(rock/resource/images/11b1OOOPIC23.jpg) #e74143 no-repeat;padding-bottom:40px; background-size:100% auto;}
+body{background:url(rock/resource/images/background.jpg) #e74143 no-repeat;padding-bottom:40px; background-size:100% auto;}
 .wid10{width:100%;height:auto;}
-.canv{width:194px;height:194px;margin:0 auto; margin-top:160px;}
+.canv{width:194px;height:194px;margin:0 auto; margin-top:160px; border-radius: 100px;overflow: hidden;}
 .myjifen{margin-top:40px;width:100%;padding-bottom:20px;}
 .myjifen h3{color:#fff; text-align:center;}
 .myjifen .cont{width:250px;height:100px;background:#313e4f;margin:0 auto;margin-top:20px;}
@@ -21,11 +21,16 @@ body{background:url(rock/resource/images/11b1OOOPIC23.jpg) #e74143 no-repeat;pad
 <body>
 <div class="main">
 </div>
-<div class="canv">摇一摇区域</div>
+<div class="canv">
+<canvas id="mainCanvas" width="194" height="194"></canvas>
+</div>
 <div class="myjifen">
 	<h3>我的积分</h3>
     <div class="cont"></div>
 </div>
 <div class="foot">版权所有：安徽天启文化有限公司</div>
+<div style="disable:none">
+	<img src="rock/resource/images/hand.png" id="hand" />
+</div>
 </body>
 </html>
