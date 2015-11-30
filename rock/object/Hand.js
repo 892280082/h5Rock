@@ -6,7 +6,6 @@ define(function(require,exports,module) {
 	var hand = new DisplayObject({ name:'hand',width:hand_pic.width,height:hand_pic.height });
 	hand.setDrawable(hand_pic);
 
-
 	hand.scaleX = 0.6;
 	hand.scaleY = 0.6;
 
@@ -75,11 +74,11 @@ define(function(require,exports,module) {
 	}
 
 	hand.upParent = Object;
-
+	
 	hand.toNextAction = function(){
-		hand.upParent.removeChild(hand);
+		hand.getStage().removeChild(hand);
 		var curtain = hand.getSpriteManager().getSprite('curtain');
-		hand.upParent.addChild(curtain);
+		hand.getStage().addChild(curtain);
 		curtain.toNextAction();
 		// curtain.render(ctx);
 		// curtain.open();

@@ -63,7 +63,7 @@ define(function(require) {
 			if (utils.isEmptyObject(this.mouseCache)) {
 				targetSprite = this.stage.getObjectUnderPoint(EventMng.mouse.x, EventMng.mouse.y);
 				//获得背景的鼠标坐标
-				targetSpriteUnder = this.stage.children[0];
+				targetSpriteUnder = this.stage.getChildArray()[0];
 				this.mouseCache.mousedown && this.mousedownDispatch(targetSprite);
 				this.mouseCache.mouseup && this.mouseupDispatch(targetSprite);
 				this.mouseCache.mousemove && this.mousemoveDispatch(targetSprite);

@@ -1,5 +1,5 @@
 define(function(require) {
-	var Stage = require('display/Stage');
+	var stage = require('display/Stage');
 	var DisplayObject = require('display/DisplayObject');
 	var CanvasContext = require('context/CanvasContext');
 	var EventMng = require('game/EventMng');
@@ -19,7 +19,6 @@ define(function(require) {
 
 
 	//创建舞台，并添加对象
-	var stage = new Stage();
 	stage.addChild(hand);
 
 
