@@ -63,13 +63,10 @@ define(function(require,exports,module) {
 	}
 
 	hand.toNextAction = function(){
-		hand.getStage().removeChild(hand);
+		hand.getStage().removeChild('hand');
 		var curtain = hand.getSpriteManager().getSprite('curtain');
-		hand.getStage().addChild(curtain);
-		//hand.getStage().addChild(curtain.curtain_right);
+		hand.getStage().addChild('curtain',curtain);
 		curtain.toNextAction();
-		// curtain.render(ctx);
-		// curtain.open();
 	}
 
 	module.exports = hand;

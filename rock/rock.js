@@ -20,7 +20,7 @@ define(function(require) {
 	spriteManager.setSprite('curtain',curtain);
 
 	//创建舞台，并添加对象
-	stage.addChild(hand);
+	stage.addChild('hand',hand);
 
 
 	//创建并初始化事物管理器
