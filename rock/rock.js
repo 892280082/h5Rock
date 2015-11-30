@@ -4,6 +4,7 @@ define(function(require) {
 	var CanvasContext = require('context/CanvasContext');
 	var EventMng = require('game/EventMng');
 	var Drawable = require('display/Drawable');
+	var spriteManager = require('display/spriteManager');
 	var utils = require('util/Utils');
 
 	//配置canvas画布
@@ -13,14 +14,13 @@ define(function(require) {
 	var hand = require('object/Hand.js');
 	var curtain = require('object/Curtain.js');
 
-	//next releation
-	hand.setNextPojo('curtain',curtain);
+	spriteManager.setSprite('hand',hand);
+	spriteManager.setSprite('curtain',curtain);
+
 
 	//创建舞台，并添加对象
 	var stage = new Stage();
 	stage.addChild(hand);
-	// stage.addChild(curtain.left);
-	// stage.addChild(curtain.right);
 
 
 	//创建并初始化事物管理器

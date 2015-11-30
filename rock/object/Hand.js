@@ -54,8 +54,6 @@ define(function(require,exports,module) {
 		},30);
 	}
 
-
-
 	hand.on('click',function(e){
 		hand.doRota();
 	});
@@ -78,16 +76,11 @@ define(function(require,exports,module) {
 
 	hand.upParent = Object;
 
-
-
 	hand.toNextAction = function(){
 		hand.upParent.removeChild(hand);
-		var curtain = hand.getNextPojo('curtain');
-		hand.upParent.addChild(curtain.left);
-		hand.upParent.addChild(curtain.right);
-		setTimeout(function(){
-			curtain.open();
-		},1000)
+		var curtain = hand.getSpriteManager().getSprite('curtain');
+		hand.upParent.addChild(curtain);
+		curtain.toNextAction();
 		// curtain.render(ctx);
 		// curtain.open();
 	}

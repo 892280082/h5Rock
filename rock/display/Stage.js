@@ -1,6 +1,10 @@
 define(function(require) {
 	var Class = require('core/Class');
 
+
+
+	
+
 	var Stage = Class.create({
 		initialize: function(props) {
 			this.children = [];
@@ -14,9 +18,7 @@ define(function(require) {
 		},
 		renderAll:function(ctx){
 			for(var i=0;i<this.children.length;i++){
-				// this.children[i].show(ctx);
-				this.children[i]._update();
-				this.children[i]._render(ctx);
+				this.children[i].show(ctx);
 			}
 		},
 		getObjectUnderPoint: function(x, y, usePolyCollision) {
