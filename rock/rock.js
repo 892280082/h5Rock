@@ -4,7 +4,7 @@ define(function(require) {
 	var CanvasContext = require('context/CanvasContext');
 	var EventMng = require('game/EventMng');
 	var Drawable = require('display/Drawable');
-	var spriteManager = require('display/spriteManager');
+	var spriteManager = require('display/SpriteManager');
 	var utils = require('util/Utils');
 
 	//配置canvas画布
@@ -12,11 +12,12 @@ define(function(require) {
 	var ctx = new CanvasContext({canvas: canvas});
 	//创建手对象
 	var hand = require('object/Hand.js');
-	var curtain = require('object/Curtain.js');
+	var curtain = require('object/curtation_c.js');
 
+
+	//将精灵加入精灵管理器中
 	spriteManager.setSprite('hand',hand);
 	spriteManager.setSprite('curtain',curtain);
-
 
 	//创建舞台，并添加对象
 	stage.addChild(hand);

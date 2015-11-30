@@ -63,7 +63,9 @@ define(function(require) {
 			if (utils.isEmptyObject(this.mouseCache)) {
 				targetSprite = this.stage.getObjectUnderPoint(EventMng.mouse.x, EventMng.mouse.y);
 				//获得背景的鼠标坐标
-				targetSpriteUnder = this.stage.getChildArray()[0];
+				var back = this.stage.getChildArray()[0];
+				if(back.type=='container') back = undefined;
+				targetSpriteUnder = back;
 				this.mouseCache.mousedown && this.mousedownDispatch(targetSprite);
 				this.mouseCache.mouseup && this.mouseupDispatch(targetSprite);
 				this.mouseCache.mousemove && this.mousemoveDispatch(targetSprite);
@@ -113,7 +115,7 @@ define(function(require) {
 		,
 		_trigger: function(targetSprite, type) {
 			if (!targetSprite) return;
-
+			//console.log(targetSprite);
 			var evt = new _Event(targetSprite, type);
 			targetSprite.trigger(type, evt);
 		},

@@ -16,13 +16,22 @@ define(function(require,exports,module) {
 	container.curtain_left.x = 0;
 	container.curtain_right.x = 100;
 
+	container.curtain_left.show = function(ctx){
+		container.curtain_left._update();
+		container.curtain_left._render(ctx);
+	}
+
+	container.curtain_left.on('click',function(e){
+		alert('hahaha');
+	});
+
 	container.show = function(ctx){
 		container.curtain_left._update();
 		container.curtain_left._render(ctx);
 		container.curtain_right._update();
 		container.curtain_right._render(ctx);
 	}
-
+	
 	container.open = function(){
 		var flag = setInterval(function(){
 			container.curtain_left.x-=2;

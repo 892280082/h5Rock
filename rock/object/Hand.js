@@ -62,23 +62,11 @@ define(function(require,exports,module) {
 		hand._render(ctx);
 	}
 
-	hand._nextPojo = [];
-	hand.setNextPojo = function(name,pojo){
-		name = "_nextPojo" + name;
-		hand._nextPojo[name] = pojo;
-	}
-	hand.getNextPojo  = function(name){
-		name = "_nextPojo" + name;
-		if(typeof hand._nextPojo[name] == 'undefined') throw "_nextPojo havn't this pojo";
-		return hand._nextPojo[name];
-	}
-
-	hand.upParent = Object;
-	
 	hand.toNextAction = function(){
 		hand.getStage().removeChild(hand);
 		var curtain = hand.getSpriteManager().getSprite('curtain');
 		hand.getStage().addChild(curtain);
+		//hand.getStage().addChild(curtain.curtain_right);
 		curtain.toNextAction();
 		// curtain.render(ctx);
 		// curtain.open();

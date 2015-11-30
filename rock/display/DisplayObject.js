@@ -21,6 +21,7 @@ define(function(require) {
 			this.regY = 0;
 			this.visible = true;
 			this.totalPic = [];
+			this.type = 'sprite';
 
 			this.context = null;
 			this.drawable = null;
