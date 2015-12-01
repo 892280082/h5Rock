@@ -14,14 +14,12 @@ define(function(require) {
 	var hand = require('object/Hand.js');
 	var curtain = require('object/curtation_c.js');
 
-
 	//将精灵加入精灵管理器中
 	spriteManager.setSprite('hand',hand);
 	spriteManager.setSprite('curtain',curtain);
 
 	//创建舞台，并添加对象
 	stage.addChild('hand',hand);
-
 
 	//创建并初始化事物管理器
 	var eventMng = new EventMng(canvas, stage);
