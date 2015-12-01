@@ -4,9 +4,13 @@ define(function(require,exports,module) {
 
 	var uitl = {};
 
+	util.getSpriteArrayById = function(){
+		
+	}
 
 
 
 
-	module.exports = container;
+
+	module.exports = util;
 });

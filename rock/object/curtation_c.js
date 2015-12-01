@@ -1,29 +1,16 @@
 define(function(require,exports,module) {
 	var Container =  require('../display/SpriteContainer');
 	var DisplayObject = require('../display/DisplayObject');
-
-	var curtain_left_pic = document.getElementById('curtain_left');
-	var curtain_left = new DisplayObject({ name:'curtain_left'});
-	curtain_left.setDrawable(curtain_left_pic);
-
-	var curtain_right_pic= document.getElementById('curtain_right');
-	var curtain_right = new DisplayObject({ name:'curtain_right'});
-	curtain_right.setDrawable(curtain_right_pic);
-
-	var mon_pic = document.getElementById('monkey');
-	var monkey = new DisplayObject({ name:'monkey' });
-	monkey.setDrawable(mon_pic);
-
-	var red_package_pic = document.getElementById('red_package');
-	var red_package = new DisplayObject({ name:'red_package'});
-	red_package.setDrawable(red_package_pic);
+	var spriteUtil = require('../util/spriteUtil');
 
 	var container = new Container();
-	
-	container.setSprite('monkey',monkey);
-	container.setSprite('red_package',red_package);
-	container.setSprite('left',curtain_left);
-	container.setSprite('right',curtain_right);
+	var sprite_id_array = ['monkey','red_package','curtain_left','curtain_right'];
+	var $ = spriteUtil.setSpriteToContainer(sprite_id_array,container);
+
+	var monkey = $.monkey;
+	var red_package = $.red_package;
+	var curtain_left = $.curtain_left;
+	var curtain_right = $.curtain_right;
 
 	//set monkey
 	monkey.x = 30;
@@ -43,7 +30,6 @@ define(function(require,exports,module) {
 	curtain_left.on('click',function(e){
 		alert('hahaha');
 	});
-
 
 	container.packAgeAction = function(){
 			var rotation_time = 5;
@@ -96,7 +82,7 @@ define(function(require,exports,module) {
 			container.open();
 			setTimeout(function(){
 				container.packAgeAction();
-			},300);
+			},1000);
 		},600);
 	}
 	module.exports = container;
