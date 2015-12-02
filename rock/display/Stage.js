@@ -37,8 +37,8 @@ define(function(require) {
 					if (child.hitTestPoint(x, y, usePolyCollision) > 0) return child;
 				}else if(child.type == 'container'){
 					var sprite_array = child.getSpriteArray();
-					for(var i=0;i<sprite_array.length;i++){
-						var tempChild = sprite_array[i];
+					for(var j=0;j<sprite_array.length;j++){
+						var tempChild = sprite_array[j];
 						if (!tempChild.visible || tempChild.alpha <= 0) continue;
 						if (tempChild.hitTestPoint(x, y, usePolyCollision) > 0) return tempChild;
 					}

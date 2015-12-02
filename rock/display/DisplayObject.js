@@ -34,6 +34,18 @@ define(function(require) {
 			} else if (this.drawable.rawDrawable != drawable) {
 				this.drawable.set(drawable);
 			}
+			this.width = drawable.width;
+			this.height = drawable.height;
+		},
+		getWidth:function(){
+			return this.width*this.scaleX;
+		},
+		getHeight:function(){
+			return this.height*this.scaleY;
+		},
+		setCenter:function(){
+			this.regX  =  this.getWidth()/2;
+			this.regY =  this.getHeight()/2;
 		},
 		getDrawable: function(context) {
 			return this._cache || this.drawable && this.drawable.get(this, context);
@@ -49,7 +61,6 @@ define(function(require) {
 			if (!this.visible || this.alpha <= 0) {
 				return;
 			}
-
 			ctx.startDraw();
 			ctx.transform(this);
 			this.render(ctx);
@@ -98,6 +109,10 @@ define(function(require) {
 			var length = this.totalPic.length;
 			var changeIndex = timeCount % length;
 			this.setDrawable(this.totalPic[changeIndex]);
+		},
+		show:function(ctx){
+			this._update();
+			this._render(ctx);
 		}
 	});
 

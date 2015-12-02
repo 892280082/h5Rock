@@ -13,13 +13,27 @@ define(function(require) {
 	//创建手对象
 	var hand = require('object/Hand.js');
 	var curtain = require('object/curtation_c.js');
+	var fonts = require('object/font_c.js');
+
 
 	//将精灵加入精灵管理器中
 	spriteManager.setSprite('hand',hand);
 	spriteManager.setSprite('curtain',curtain);
+	spriteManager.setSprite('fonts',fonts);
+
+	var curtain_left = curtain.getSprite('curtain_left');
+	var curtain_right = curtain.getSprite('curtain_right');
 
 	//创建舞台，并添加对象
-	stage.addChild('hand',hand);
+	stage.addChild('curtain_left',curtain_left);
+	stage.addChild('curtain_right',curtain_right);
+	stage.addChild('fonts',fonts);
+	//stage.addChild('hand',hand);
+
+	fonts.action_mai();
+	fonts.action_ji();
+	fonts.action_ke();
+	fonts.action_xue();
 
 	//创建并初始化事物管理器
 	var eventMng = new EventMng(canvas, stage);
@@ -29,6 +43,6 @@ define(function(require) {
 		ctx.clear(0, 0, 800, 600);
 		eventMng.dispatch();
 		stage.renderAll(ctx);
-	},30);
+	},60);
 
 });
