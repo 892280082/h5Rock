@@ -4,7 +4,8 @@ define(function(require,exports,module) {
 	var spriteUtil = require('../util/spriteUtil');
 
 	var container = new Container();
-	var sprite_id_array = ['monkey','red_package','curtain_left','curtain_right'];
+	var sprite_id_array = ['monkey','red_package',
+	'curtain_left','curtain_right'];
 	var $ = spriteUtil.setSpriteToContainer(sprite_id_array,container);
 
 	var monkey = $.monkey;
@@ -22,16 +23,9 @@ define(function(require,exports,module) {
 	red_package.x =40;
 	red_package.y = 88;
 
-
 	//curtain_right.scaleY = 0.3;
 	curtain_left.x = 0;
 	curtain_right.x = 100;
-
-
-	red_package.on('click',function(e){
-		alert('hahaha');
-	});
-
 
 	container.packAgeAction = function(){
 			var rotation_time = 5;

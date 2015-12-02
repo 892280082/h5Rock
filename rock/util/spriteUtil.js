@@ -3,6 +3,19 @@ define(function(require,exports,module) {
 
 	var util = {};
 
+	/**
+	*	传入ID名 返回精灵对象
+	**/
+	util.getSprite = function(documentId){
+		var _sprite_pic = document.getElementById(documentId);
+		var sprite = new DisplayObject({name:documentId});
+		sprite.setDrawable(_sprite_pic);
+		return sprite;
+	}
+
+	/**
+	*	传入ID名称数组,返回对象。
+	*/
 	util.getSpritesById = function(array){
 		var _spriteContainer = {};
 		for(var i=0;i<array.length;i++){
@@ -14,6 +27,9 @@ define(function(require,exports,module) {
 		return _spriteContainer;
 	}
 
+	/**
+	*	传入ID数组，和容器进行自动装载。返回容器。
+	*/
 	util.setSpriteToContainer = function(sprite_id_array,container){
 		var _spriteContainer = this.getSpritesById(sprite_id_array);
 		for(var p in _spriteContainer){
@@ -22,6 +38,9 @@ define(function(require,exports,module) {
 		return _spriteContainer;
 	}
 
+	/**
+	* 传入ID数组，返回GIF精灵
+	*/
 	util.getSpritesGif = function(image_id_array,speed,name){
 		name ? name : image_id_array[0];
 		speed ? speed : 1000;
