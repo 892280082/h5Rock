@@ -11,7 +11,7 @@ define(function(require,exports,module) {
 		this.scaleX = 4;
 		this.scaleY = 4;
 		this.x = 10;
-		this.y = 80;
+		this.y = 90;
 		this.rotation = -30;
 		this.alpha =0.1;
 	}
@@ -20,14 +20,15 @@ define(function(require,exports,module) {
 		this.scaleX = 0.8;
 		this.scaleY = 0.8;
 		this.x = 60;
-		this.y = -40;
+		this.y = -30;
 	}
 
 	$.font_ke.init = function(){
 		this.scaleX = 0.8;
 		this.scaleY = 0.8;
-		this.x = 85;
-		this.y = 20;
+		this.alpha = 0.1;
+		this.x = 105;
+		this.y = 50;
 		this.setCenter();
 	}
 
@@ -35,14 +36,10 @@ define(function(require,exports,module) {
 	$.font_xue.init = function(){
 		this.scaleX = 0.1;
 		this.scaleY = 0.1;
-		this.x = 125;
-		this.y = 75;
+		this.x = 145;
+		this.y = 85;
 	}
 	
-	$.font_mai.init();
-	$.font_ji.init();
-	$.font_ke.init();
-	$.font_xue.init();
 
 	container.action_mai = function(){
 		$.font_mai.init();
@@ -52,7 +49,7 @@ define(function(require,exports,module) {
 				$.font_mai.scaleX -= 0.1;
 				$.font_mai.scaleY -= 0.1;
 			}
-			if($.font_mai.alpha == 1)clearInterval(flag);
+			if($.font_mai.alpha >= 2)clearInterval(flag);
 		},30);
 	}
 
@@ -60,14 +57,16 @@ define(function(require,exports,module) {
 		$.font_ji.init();
 		var flag = setInterval(function(){
 			$.font_ji.y += 10;
-			if($.font_ji.y == 130)clearInterval(flag);
+			if($.font_ji.y >= 85)clearInterval(flag);
 		},30);
 	}
+
 
 	container.action_ke = function(){
 		$.font_ke.init();
 		var flag = setInterval(function(){
 			$.font_ke.rotation += 10;
+			if($.font_ke.alpha < 1) $.font_ke.alpha+=0.1;
 			if($.font_ke.rotation%360 ==0)clearInterval(flag);
 		},30);
 	}
@@ -83,5 +82,13 @@ define(function(require,exports,module) {
 		},30);
 	}
 
+	container.init = function(){
+		$.font_mai.init();
+		$.font_ji.init();
+		$.font_ke.init();
+		$.font_xue.init();
+	}
+
+	container.init();
 	module.exports = container;
 });

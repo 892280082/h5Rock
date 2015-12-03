@@ -87,18 +87,22 @@ define(function(require,exports,module) {
 			curtain_right.x-=2;
 			close_time++;
 			if(close_time == open_time){
-				var hand = container.getSpriteManager().getSprite('hand');
-				container.getStage().addChild('hand',hand);
+				var fonts = container.getSpriteManager().getSprite('fonts');
+				var stick = container.getSpriteManager().getSprite('stick');
+				stick.init();
+				fonts.init();
+				container.getStage().addChild('fonts',fonts);
+				container.getStage().addChild('stick',stick);
 				clearInterval(flag);
 			}
 		},30);
 	}
 
 
-
-
 	container.toNextAction = function(){
 		setTimeout(function(){
+			container.getStage().removeChild('fonts');
+			container.getStage().removeChild('stick');
 			container.open();
 			setTimeout(function(){
 				container.packAgeAction();

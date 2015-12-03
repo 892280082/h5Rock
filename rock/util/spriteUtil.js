@@ -28,7 +28,7 @@ define(function(require,exports,module) {
 	}
 
 	/**
-	*	传入ID数组，和容器进行自动装载。返回容器。
+	* 传入ID数组，和容器进行自动装载。返回容器。
 	*/
 	util.setSpriteToContainer = function(sprite_id_array,container){
 		var _spriteContainer = this.getSpritesById(sprite_id_array);
@@ -61,6 +61,33 @@ define(function(require,exports,module) {
 		sprite.gifStop = function(){
 			clearInterval(this._gif_flag);
 		}
+	}
+
+	/*
+	*对象复制  把source 对象复制给 target对象,并返回target对象
+	*@param 把target 即要返回的新对象。
+	*@param source  被复制的对象。
+	*/ 
+	util.spriteCopy =function(source){
+		var target = new source.constructor();
+		for( var p in source){
+				if(source.hasOwnProperty(p)){
+					target[p] = source[p];
+				}
+			}
+		return target;
+	}
+
+	/**
+	*@name mingcheng
+	**/
+	util.spriteCopyArray = function(source_sprite,number){
+		var sprite_array = [];
+		for(var i=0;i<number;i++){
+			var new_sprite = util.spriteCopy(source_sprite);
+			sprite_array.push(new_sprite);
+		}
+		return sprite_array;
 	}
 
 	module.exports = util;

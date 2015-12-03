@@ -32,8 +32,8 @@ define(function(require,exports,module) {
 		this.removeSprite = function(name){
 			delete this.sprite_container[name];
 			this._sprite_array = [];
-			for(var p in this._spriteContainer){
-				this._sprite_array.push(this._spriteContainer[p]);
+			for(var p in this.sprite_container){
+				this._sprite_array.push(this.sprite_container[p]);
 			}
 		}
 		this.getSpriteArray = function(){
@@ -41,6 +41,7 @@ define(function(require,exports,module) {
 		},
 		this.clearContainer = function(){
 			this.sprite_container = {};
+			this._sprite_array = [];
 		},
 		this.setX = function(value){
 			var delX = value - this.x;
@@ -70,6 +71,22 @@ define(function(require,exports,module) {
 			for(var i=0;i<this._sprite_array.length;i++){
 				this._sprite_array[i]._update();
 				this._sprite_array[i]._render(ctx);
+			}
+		},
+		this.setSpriteArray = function(name_flag,sprite_array){
+			for(var i=0;i<sprite_array.length;i++){
+				this.setSprite(name_flag+i,sprite_array[i]);
+			}
+		},
+		this.removeSpriteArray = function(name_flag){
+			var i = 0;
+			while(true){
+				var param = name_flag + (i++);
+				if(typeof this.sprite_container[param] != 'undefined' ){
+					this.removeSprite(param);
+				}else{
+					return;
+				}
 			}
 		}
 	}
